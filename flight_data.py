@@ -39,8 +39,8 @@ class FlightData:
 
     def response(self, to_iata, from_iata, start_str, end_str, FLIGHT_ENDPOINT,headers,stops):
         parameters = {
-            "originLocationCode": to_iata,
-            "destinationLocationCode": from_iata,
+            "originLocationCode": from_iata,
+            "destinationLocationCode": to_iata,
             "departureDate": start_str,
             "returnDate": end_str,
             "adults": 1,
