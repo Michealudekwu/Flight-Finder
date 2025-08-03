@@ -68,6 +68,3 @@ flight_pricer/
 
 - Replace `your_amadeus_api_key` with your actual API credentials in your `.env` (never commit this file).
 - Replace `your-username` and `[Your Name]` with your GitHub info.
-- Add screenshots for better appeal.
-
-
