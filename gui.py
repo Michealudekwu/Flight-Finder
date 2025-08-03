@@ -5,13 +5,14 @@ from PIL import Image, ImageTk
 from city_iata_find import FlightSearch
 from flight_data import FlightData
 
-#=================================UI==========================================================
+#+++++++++++UI+++++++++++++++
 class UI:
     def __init__(self):
         self.window = Tk()
         self.window.title("Flight Pricer")
         self.window.config(padx=30, pady=30, bg="#f0f4f7")
         self.subscribe_var = IntVar()
+        
         # === Load and Resize Image ===
         img = Image.open("plane_png/plane2.png")
         resized_img = img.resize((120, 120))
@@ -55,14 +56,16 @@ class UI:
         date1_label = Label(text="From:", bg="#f0f4f7", font=("Arial", 10))
         date1_label.grid(column=0, row=5, sticky="e", padx=5, pady=5)
         self.date1_gap = Entry(width=25)
+        self.date1_gap.insert(0, "YYYY-MM-DD")
         self.date1_gap.grid(column=1, row=5, padx=5, pady=5)
 
         date2_label = Label(text="To:", bg="#f0f4f7", font=("Arial", 10))
         date2_label.grid(column=2, row=5, sticky="e", padx=5, pady=5)
         self.date2_gap = Entry(width=25)
+        self.date2_gap.insert(0, "YYYY-MM-DD")
         self.date2_gap.grid(column=3, row=5, padx=5, pady=5)
 
-        # === Submit Button ===
+        # ===Button ===
         submit_btn = Button(self.window, text="Search Flights", bg="#007acc", fg="white", command=self.get_info,
                             font=("Arial", 12, "bold"), padx=10, pady=5)
         submit_btn.grid(column=0, row=7, columnspan=2, pady=20)
@@ -81,8 +84,8 @@ class UI:
     def clear(self):
         self.first_gap.delete(0, END)
         self.second_gap.delete(0, END)
-        self.date1_gap.delete(0, END)
-        self.date2_gap.delete(0, END)
+        self.date1_gap.insert(0, "YYYY-MM-DD")
+        self.date2_gap.insert(0, "YYYY-MM-DD")
         self.phone_gap.delete(0, END)
         self.from_gap.delete(0, END)
         self.to_gap.delete(0, END)
